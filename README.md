@@ -1,102 +1,95 @@
-# Node.js HTTP Server
+# 📡 Node.js HTTP Server
 This is a simple HTTP server built using Node.js. It handles both GET and POST requests, stores submitted POST data, and allows users to retrieve it through specific routes.
 
-### Features
-GET Requests:
+## 🚀 Features
+### ✅ GET Requests:
+- 🏠 **/**: Root route that returns a welcome message.
+- ℹ️ **/about**: Returns information about the server.
+- 📂 **/data**: Displays stored POST data (if available) or informs that no data has been posted yet.
 
-- /: Root route that returns a welcome message.
-- /about: Returns information about the server.
-- /data: Displays stored POST data (if available) or informs that no data has been posted yet.
-- POST Requests:
-- /submit: Accepts and stores data sent in the request body.
-- Error Handling:
+### ✉️ POST Requests:
+- 📝 **/submit**: Accepts and stores data sent in the request body.
 
-Responds with appropriate HTTP status codes for unhandled routes, methods, or request errors.
-# Getting Started
-### Prerequisites
-Node.js: Ensure that you have Node.js installed on your machine. You can download it from here.
-### Installation
-Clone this repository or download the server file.
-Navigate to the project directory in your terminal.
-Run the server:
-````bash
-Copy code
+### ⚠️ Error Handling:
+- Responds with appropriate HTTP status codes for unhandled routes, methods, or request errors.
+
+## 🛠️ Getting Started
+### 📌 Prerequisites
+- 🟢 **Node.js**: Ensure that you have Node.js installed on your machine. You can download it from [here](https://nodejs.org/).
+
+### 📥 Installation
+1. 📂 Clone this repository or download the server file.
+2. 🖥️ Navigate to the project directory in your terminal.
+3. ▶️ Run the server:
+
+```bash
 node server.js
-Server Endpoints
-````
-### Method	Route	Description
+```
 
-- GET	/	Returns a welcome message.
-- GET	/about	Provides information about the server.
-- GET	/data	Returns stored POST data (if available).
-- POST	/submit	Accepts and stores POST data.
+## 🌍 Server Endpoints
 
-### Example Usage
-````GET /
-bash
-Copy code
+| 🛑 Method | 🛤️ Route  | 📝 Description |
+|----------|---------|-------------|
+| GET | `/` | Returns a welcome message. |
+| GET | `/about` | Provides information about the server. |
+| GET | `/data` | Returns stored POST data (if available). |
+| POST | `/submit` | Accepts and stores POST data. |
+
+## 📌 Example Usage
+
+### 🌐 GET /
+```bash
 curl http://localhost:3000/
-Response:
-````
-### css
-````
-Copy code
+```
+📨 **Response:**
+```css
 Welcome to the root route!
-GET /about
-````
-### bash
-````
-Copy code
-curl http://localhost:3000/about
-Response:
-````
-### csharp
-````
-Copy code
-This is the about page.
-POST /submit
-To send data via a POST request:
-````
-### bash
-````
-Copy code
-curl -X POST -d "message=Hello, World!" http://localhost:3000/submit
-Response:
-````
-````
-Copy code
-Data received and stored
-GET /data
-To retrieve stored data:
-````
+```
 
-### bash
-````
-Copy code
+### 🌐 GET /about
+```bash
+curl http://localhost:3000/about
+```
+📨 **Response:**
+```csharp
+This is the about page.
+```
+
+### 📩 POST /submit
+To send data via a POST request:
+```bash
+curl -X POST -d "message=Hello, World!" http://localhost:3000/submit
+```
+📨 **Response:**
+```json
+{
+  "message": "Data received and stored"
+}
+```
+
+### 📂 GET /data
+To retrieve stored data:
+```bash
 curl http://localhost:3000/data
-Response (if data was submitted):
-````
-### json
-````
-Copy code
+```
+📨 **Response (if data was submitted):**
+```json
 {
   "message": "Here is the posted data",
   "data": "message=Hello, World!"
 }
-Response (if no data was submitted yet):
-````
-
-### json
-````
-Copy code
+```
+📨 **Response (if no data was submitted yet):**
+```json
 {
   "message": "No data posted yet!",
   "data": null
 }
-````
-### Error Handling
+```
 
-- 404 Not Found: Returned if an unhandled route is accessed.
-- 405 Method Not Allowed: Returned if a method other than GET or POST is used.
-- 400 Bad Request: Returned if a request error occurs.
-- 500 Internal Server Error: Returned if a server-side error occurs.
+## ❌ Error Handling
+- 🛑 **404 Not Found**: Returned if an unhandled route is accessed.
+- ⛔ **405 Method Not Allowed**: Returned if a method other than GET or POST is used.
+- 🚫 **400 Bad Request**: Returned if a request error occurs.
+- 🔥 **500 Internal Server Error**: Returned if a server-side error occurs.
+
